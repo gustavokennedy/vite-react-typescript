@@ -6,19 +6,30 @@ ______      ________ _____            _      _        _____ _      ____  _    _ 
 | |__| | \  /  | |____| | \ \  / ____ \| |____| |____ | |____| |___| |__| | |__| | |__| |
 \____/   \/   |______|_|  \_\/_/    \_\______|______(_)_____|______\____/ \____/|_____/ 
 overall.cloud
-*/
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Login from './Login.tsx'
-import Dashboard from './pages/Dashboard.tsx'
-import './index.css'
+*/ 
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
-  </BrowserRouter>,
-  document.getElementById('root')
-);
+'use client';
+
+interface ContainerProps {
+    children: React.ReactNode;
+}
+
+const Container: React.FC<ContainerProps> = ({
+    children
+}) => {
+    return (
+        <div 
+        className="
+            max-w-[2520px]
+            mx-auto
+            xl:px-20
+            md:px-10
+            sm:px-2
+            px-4
+        ">
+            {children}
+        </div>
+    )
+}
+
+export default Container;
